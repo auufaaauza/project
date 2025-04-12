@@ -1,16 +1,7 @@
 import React, { useState } from 'react';
-import { Star, Heart, ShoppingCart, Sparkles, Leaf, Shield, Search, Menu, X } from 'lucide-react';
+import { Star, Heart, ShoppingCart, Leaf, Shield, Search } from 'lucide-react';
+import HeroSection from './HeroSection';
 
-interface Product {
-  id: number;
-  name: string;
-  description: string;
-  price: number;
-  bpom: string;
-  image: string;
-  benefits: string[];
-  ingredients: string[];
-}
 
 const product = {
   id: 1,
@@ -36,8 +27,8 @@ const product = {
 };
 
 function App() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isMenuOpen] = useState(false);
+  const [isSearchOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-pink-50 to-white">
@@ -47,8 +38,11 @@ function App() {
           <div className="flex items-center justify-between h-24">
             {/* Logo */}
             <div className="flex items-center group cursor-pointer">
-              <div className="bg-white/95 p-3 rounded-2xl shadow-inner group-hover:shadow-lg group-hover:scale-105 transition-all duration-300">
-                <Sparkles className="h-8 w-8 text-pink-500 group-hover:animate-pulse" />
+              <div className="group-hover:shadow-lg group-hover:scale-105 transition-all duration-300">
+                <img
+                src ="/Logo.jpg"
+                alt="Logo Lucyme"
+                className="h-14 w-13 text-pink-500 group-hover:animate-pulse" />
               </div>
               <div className="ml-4">
                 <h1 className="text-2xl font-bold text-white drop-shadow-lg">
@@ -159,12 +153,10 @@ function App() {
       <div className="pt-24">
         {/* Rest of the content remains unchanged */}
         {/* Hero Section */}
-        <div className="bg-gradient-to-r from-pink-500 to-pink-400 text-white py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl font-bold mb-4">Achieve Healthy & Glow Skin</h2>
-            <p className="text-xl opacity-90">Experience the perfect blend of science and luxury for your skin</p>
-          </div>
-        </div>
+        <div>
+      <HeroSection />
+      {/* Konten lainnya */}
+    </div>
 
         {/* Benefits Section */}
         <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
@@ -259,7 +251,6 @@ function App() {
                 </ul>
               </div>
               <div className="flex justify-between items-center mt-4">
-                <span className="text-2xl font-bold text-pink-500">{product.price}</span>
                 <a
                   href="https://wa.me/6285724210417"
                   target="_blank"
