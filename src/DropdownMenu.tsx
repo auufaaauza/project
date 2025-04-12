@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const DropdownMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,10 +31,13 @@ const DropdownMenu = () => {
       {/* Dropdown Menu dengan Ukuran Lebih Besar */}
       {isOpen && (
         <div
-          className="absolute right-0 mt-2 w-80 bg-white/50 backdrop-blur-lg rounded-md shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden"
+          className="absolute right-0 mt-2 w-80 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden
+            transform transition-all duration-300 ease-in-out opacity-100 translate-y-[-10px]
+            scale-95
+            group-hover:opacity-0 group-hover:translate-y-0 group-hover:scale-100"
           style={{ zIndex: 10 }}
         >
-          <div className="py-4"> {/* Padding vertikal diperbesar */}
+          <div className="py-3"> {/* Padding vertikal diperbesar */}
             <a
               href="#"
               className="block px-6 py-3 text-base text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition duration-200" // Padding dan font size diperbesar

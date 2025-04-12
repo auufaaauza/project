@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
 import { Star, Leaf, Shield } from 'lucide-react';
 import HeroSection from './HeroSection';
 import DropdownMenu from './DropdownMenu';
+import ProductReview from './ProductReview';
 
 
 const product = {
@@ -11,9 +11,15 @@ const product = {
     "Mengandung Niacinamide & Aloe Vera Ekstra, Flawless Skin & Effortlessly",
   bpom: "NA18240113988",
   images: [
-    "https://i.pinimg.com/736x/5a/19/3a/5a193a88f2709f8c6afc78e902d5ee8e.jpg",
-    "https://images.unsplash.com/photo-1583125673401-c0f9b5e2d0c1?auto=format&fit=crop&w=800&q=80",
-    "https://images.unsplash.com/photo-1597826781285-a55f5e0e009e?auto=format&fit=crop&w=800&q=80"
+    "luc.jpg", // Gambar pertama
+    "luc2.jpg", // Gambar kedua
+    "Des1.jpg"  // Gambar ketiga
+  ],
+  problems: [
+    "Kulit kering dan kasar",
+    "Warna kulit tidak merata",
+    "Bekas luka yang sulit hilang",
+    "Kerutan hitam pada kulit"
   ],
   benefits: [
     "Melembabkakan",
@@ -59,7 +65,7 @@ function App() {
 
             {/* Tombol Pesan Sekarang */}
             <div>
-              <DropdownMenu/>
+              <DropdownMenu />
             </div>
           </div>
         </div>
@@ -82,69 +88,38 @@ function App() {
             <div className="flex items-center space-x-4 p-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow">
               <Leaf className="h-8 w-8 text-pink-500" />
               <div>
-                <h3 className="font-semibold">Natural Ingredients</h3>
-                <p className="text-gray-600">Carefully selected botanical extracts</p>
+                <h3 className="font-semibold">Bahan Alami</h3>
+                <p className="text-gray-600">Ekstrak tumbuhan terpilih untuk hasil terbaik.</p>
               </div>
 
             </div>
             <div className="flex items-center space-x-4 p-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow">
               <Shield className="h-8 w-8 text-pink-500" />
               <div>
-                <h3 className="font-semibold">Dermatologist Tested</h3>
-                <p className="text-gray-600">Clinically proven formulations</p>
+                <h3 className="font-semibold">Sudah Teruji Oleh Ahli</h3>
+                <p className="text-gray-600">Diuji klinis oleh ahli kulit, aman dan efektif.</p>
               </div>
             </div>
             <div className="flex items-center space-x-4 p-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow">
               <Star className="h-8 w-8 text-pink-500" />
               <div>
-                <h3 className="font-semibold">Premium Quality</h3>
-                <p className="text-gray-600">Highest grade ingredients</p>
+                <h3 className="font-semibold">Kualitas Premium</h3>
+                <p className="text-gray-600">Bahan berkualitas untuk perawatan kulit maksimal.</p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Product Catalog */}
+             {/* Product Catalog */}
         {/* Single Product Review */}
         <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
-          <h2 className="text-3xl text-center font-bold mb-8 text-gray-900">About Product</h2>
+          <h2 className="text-3xl text-center font-bold mb-8 text-gray-900">Tentang Produk</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Left Column: Product Images */}
-            <div className="space-y-4">
-              {product.images.map((image, index) => (
-                <div key={index} className="relative">
-                  {/* Gambar pertama */}
-                  {index === 0 && (
-                    <img
-                      src={image}
-                      alt={`${product.name} - Image ${index + 1}`}
-                      className="w-full h-64  object-cover rounded-2xl shadow-md"
-                    />
-                  )}
-                  {/* Video sebagai pengganti gambar kedua */}
-                  {index === 1 && (
-                    <video
-                      controls
-                      className="w-full h-64 object-cover rounded-2xl shadow-md"
-                    >
-                      <source
-                        src="https://www.w3schools.com/html/mov_bbb.mp4" // Ganti dengan URL video Anda
-                        type="video/mp4"
-                      />
-                      Your browser does not support the video tag.
-                    </video>
-                  )}
-                  {/* Gambar ketiga */}
-                  {index === 2 && (
-                    <img
-                      src={image}
-                      alt={`${product.name} - Image ${index + 1}`}
-                      className="w-full h-64 object-cover rounded-2xl shadow-md"
-                    />
-                  )}
-                </div>
-              ))}
-            </div>
+           <div>
+           <ProductReview product={product} />
+           </div>
+
+   
             {/* Right Column: Product Details */}
             <div className="bg-white rounded-2xl shadow-md p-7">
               <h3 className="text-2xl font-bold mb-4">{product.name}</h3>
@@ -152,16 +127,30 @@ function App() {
                 <span className="ml-0 text-gray-600">BPOM {product.bpom}</span>
               </div>
               <p className="text-gray-600 mb-6">{product.description}</p>
+
+              {/* Masalah Section */}
               <div className="mb-6">
-                <h4 className="font-semibold mb-2">Benefits:</h4>
+                <h4 className="font-semibold mb-2">Mengatasi:</h4>
+                <ul className="list-disc list-inside text-gray-600">
+                  {product.problems.map((problem, index) => (
+                    <li key={index}>{problem}</li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Benefits Section */}
+              <div className="mb-6">
+                <h4 className="font-semibold mb-2">Keuntungan:</h4>
                 <ul className="list-disc list-inside text-gray-600">
                   {product.benefits.map((benefit, index) => (
                     <li key={index}>{benefit}</li>
                   ))}
                 </ul>
               </div>
+
+              {/* Ingredients Section */}
               <div className="mb-6">
-                <h4 className="font-semibold mb-2">Ingredients:</h4>
+                <h4 className="font-semibold mb-2">Bahan:</h4>
                 <ul className="list-disc list-inside text-gray-600">
                   {product.ingredients.map((ingredient, index) => (
                     <li key={index}>{ingredient}</li>
