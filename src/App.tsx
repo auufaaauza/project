@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Star, Heart, ShoppingCart, Leaf, Shield, Search } from 'lucide-react';
+import { Star, Leaf, Shield } from 'lucide-react';
 import HeroSection from './HeroSection';
+import DropdownMenu from './DropdownMenu';
 
 
 const product = {
@@ -18,7 +19,9 @@ const product = {
     "Melembabkakan",
     "Mencerahkan",
     "Memutihkan Kulit",
-    "Meratakan Warna Kulit"
+    "Meratakan Warna Kulit",
+    "Menghilangkan Bekas Luka",
+    "Menghilangkan Kerutan Hitam"
   ],
   ingredients: [
     "Niacinamide",
@@ -27,8 +30,7 @@ const product = {
 };
 
 function App() {
-  const [isMenuOpen] = useState(false);
-  const [isSearchOpen] = useState(false);
+
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-pink-50 to-white">
@@ -56,14 +58,9 @@ function App() {
             </div>
 
             {/* Tombol Pesan Sekarang */}
-            <a
-              href="https://wa.me/6285724210417"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white text-pink-500 px-4 py-2 rounded-full hover:bg-transparent border border-pink-500 transition-all duration-300 inline-block"
-            >
-              Pesan Sekarang
-            </a>
+            <div>
+              <DropdownMenu/>
+            </div>
           </div>
         </div>
       </header>
@@ -121,7 +118,7 @@ function App() {
                     <img
                       src={image}
                       alt={`${product.name} - Image ${index + 1}`}
-                      className="w-full h-64 object-cover rounded-2xl shadow-md"
+                      className="w-full h-64  object-cover rounded-2xl shadow-md"
                     />
                   )}
                   {/* Video sebagai pengganti gambar kedua */}
@@ -149,10 +146,10 @@ function App() {
               ))}
             </div>
             {/* Right Column: Product Details */}
-            <div className="bg-white rounded-2xl shadow-md p-6">
+            <div className="bg-white rounded-2xl shadow-md p-7">
               <h3 className="text-2xl font-bold mb-4">{product.name}</h3>
               <div className="flex items-center mb-4">
-                <span className="ml-1 text-gray-600">BPOM {product.bpom}</span>
+                <span className="ml-0 text-gray-600">BPOM {product.bpom}</span>
               </div>
               <p className="text-gray-600 mb-6">{product.description}</p>
               <div className="mb-6">
