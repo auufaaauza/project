@@ -23,7 +23,7 @@ const HeroSection = () => {
         loop={true}
         pagination={{ clickable: true }}
         navigation={true}
-        className="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px]"
+        className="w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[500px] xl:h-[600px]"
       >
         {images.map((image, index) => (
           <SwiperSlide key={index}>
@@ -35,20 +35,6 @@ const HeroSection = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-
-      {/* Overlay Teks */}
-      <div className="absolute inset-0 flex items-center justify-center text-center">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Judul Utama */}
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 drop-shadow-md">
-            Achieve Healthy & Glow Skin
-          </h2>
-          {/* Deskripsi */}
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white opacity-90 drop-shadow-md">
-            Experience the perfect blend of science and luxury for your skin
-          </p>
-        </div>
-      </div>
     </div>
   );
 };

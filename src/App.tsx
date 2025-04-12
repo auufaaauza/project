@@ -33,130 +33,51 @@ function App() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-pink-50 to-white">
       {/* Header */}
-      <header className="fixed w-full bg-gradient-to-r from-pink-400/90 via-pink-500/90 to-pink-400/90 backdrop-blur-lg shadow-lg z-50">
+      <header className="fixed w-full bg-transparent backdrop-blur-lg shadow-lg z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-24">
             {/* Logo */}
             <div className="flex items-center group cursor-pointer">
               <div className="group-hover:shadow-lg group-hover:scale-105 transition-all duration-300">
                 <img
-                src ="/Logo.jpg"
-                alt="Logo Lucyme"
-                className="h-14 w-13 text-pink-500 group-hover:animate-pulse" />
+                  src="/Logo.jpg"
+                  alt="Logo Lucyme"
+                  className="h-14 w-13 text-pink-500 group-hover:animate-pulse"
+                />
               </div>
               <div className="ml-4">
-                <h1 className="text-2xl font-bold text-white drop-shadow-lg">
+                <h1 className="text-2xl font-bold text-pink-500 drop-shadow-lg">
                   Lucyme
                 </h1>
-                <span className="text-xs uppercase tracking-widest text-white/70">Body Lotion</span>
+                <span className="text-xs uppercase tracking-widest text-pink-300">
+                  Body Lotion
+                </span>
               </div>
             </div>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-10">
-              {/* {['Research', 'About', 'Contact'].map((item) => (
-                <a
-                  key={item}
-                  href="#"
-                  className="text-white/90 hover:text-white text-sm uppercase tracking-wider font-medium hover:drop-shadow-lg relative group transition-colors duration-300"
-                >
-                  {item}
-                  <span className="absolute inset-x-0 -bottom-2 h-0.5 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
-                </a>
-              ))} */}
-            </nav>
-
-            {/* Desktop Icons */}
-            <div className="hidden md:flex items-center space-x-6">
-              {/* <button
-                onClick={() => setIsSearchOpen(!isSearchOpen)}
-                className="bg-white/20 p-3 rounded-xl hover:bg-white/30 hover:scale-110 transition-all duration-300 group"
-              >
-                <Search className="h-5 w-5 text-white group-hover:rotate-12 transition-transform duration-300" />
-              </button>
-              <button className="bg-white/20 p-3 rounded-xl hover:bg-white/30 hover:scale-110 transition-all duration-300 group relative">
-                <Heart className="h-5 w-5 text-white group-hover:scale-110 transition-transform duration-300" />
-                <span className="absolute -top-1 -right-1 bg-white text-pink-500 text-xs font-bold rounded-lg w-5 h-5 flex items-center justify-center shadow-md transform -rotate-12">
-                  0
-                </span>
-              </button>
-              <button className="bg-white/20 p-3 rounded-xl hover:bg-white/30 hover:scale-110 transition-all duration-300 group relative">
-                <ShoppingCart className="h-5 w-5 text-white group-hover:scale-110 transition-transform duration-300" />
-                <span className="absolute -top-1 -right-1 bg-white text-pink-500 text-xs font-bold rounded-lg w-5 h-5 flex items-center justify-center shadow-md transform rotate-12">
-                  0
-                </span>
-              </button> */}
-            </div>
-
-            {/* Mobile menu button */}
-            <div className="md:hidden">
-              {/* <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="bg-white/20 p-3 rounded-xl hover:bg-white/30 transition-all duration-300"
-              >
-                {isMenuOpen ?
-                  <X className="h-6 w-6 text-white" /> :
-                  <Menu className="h-6 w-6 text-white" />
-                }
-              </button> */}
-            </div>
+            {/* Tombol Pesan Sekarang */}
+            <a
+              href="https://wa.me/6285724210417"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white text-pink-500 px-4 py-2 rounded-full hover:bg-transparent border border-pink-500 transition-all duration-300 inline-block"
+            >
+              Pesan Sekarang
+            </a>
           </div>
-
-          {/* Search bar */}
-          {isSearchOpen && (
-            <div className="py-6 border-t border-white/10">
-              <div className="relative group">
-                <input
-                  type="text"
-                  placeholder="Search products..."
-                  className="w-full pl-12 pr-4 py-4 rounded-xl bg-white/20 border-2 border-white/30 focus:outline-none focus:border-white/50 text-white placeholder-white/70 transition-all duration-300"
-                />
-                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-white/70 group-hover:rotate-12 transition-transform duration-300" />
-              </div>
-            </div>
-          )}
         </div>
-
-        {/* Mobile menu */}
-        {isMenuOpen && (
-          <div className="md:hidden border-t border-white/10 bg-gradient-to-r from-pink-400/95 via-pink-500/95 to-pink-400/95 backdrop-blur-lg">
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              {['Research', 'About', 'Contact'].map((item) => (
-                <a
-                  key={item}
-                  href="#"
-                  className="block px-4 py-3 rounded-xl text-base font-medium text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300"
-                >
-                  {item}
-                </a>
-              ))}
-            </div>
-            <div className="px-5 py-4 border-t border-white/10 flex justify-around">
-              <button className="bg-white/20 p-3 rounded-xl hover:bg-white/30 transition-all duration-300 relative group">
-                <Heart className="h-5 w-5 text-white group-hover:scale-110 transition-transform duration-300" />
-                <span className="absolute -top-1 -right-1 bg-white text-pink-500 text-xs font-bold rounded-lg w-5 h-5 flex items-center justify-center shadow-md transform -rotate-12">
-                  0
-                </span>
-              </button>
-              <button className="bg-white/20 p-3 rounded-xl hover:bg-white/30 transition-all duration-300 relative group">
-                <ShoppingCart className="h-5 w-5 text-white group-hover:scale-110 transition-transform duration-300" />
-                <span className="absolute -top-1 -right-1 bg-white text-pink-500 text-xs font-bold rounded-lg w-5 h-5 flex items-center justify-center shadow-md transform rotate-12">
-                  0
-                </span>
-              </button>
-            </div>
-          </div>
-        )}
       </header>
 
+
+
       {/* Content with padding for fixed header */}
-      <div className="pt-24">
+      < div className="pt-24" >
         {/* Rest of the content remains unchanged */}
         {/* Hero Section */}
         <div>
-      <HeroSection />
-      {/* Konten lainnya */}
-    </div>
+          <HeroSection />
+          {/* Konten lainnya */}
+        </div>
 
         {/* Benefits Section */}
         <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
@@ -250,16 +171,6 @@ function App() {
                   ))}
                 </ul>
               </div>
-              <div className="flex justify-between items-center mt-4">
-                <a
-                  href="https://wa.me/6285724210417"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-pink-500 text-white px-6 py-2 rounded-full hover:bg-pink-600 transition-colors inline-block"
-                >
-                  Pesan Sekarang
-                </a>
-              </div>
             </div>
           </div>
         </div>
@@ -292,7 +203,7 @@ function App() {
             </div>
           </div>
         </footer>
-      </div>
+      </div >
     </div >
   );
 }
